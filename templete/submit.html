@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Problem - ThinkBridge</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <img src="../static/images/logo.png" alt="ThinkBridge Logo" class="logo">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="submit.html" class="active">Submit Problem</a>
+                <a href="browse.html">Browse Problems</a>
+                <a href="about.html">About Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Submit Problem Form -->
+    <main>
+        <section class="submit-form">
+            <h2>Submit a New Problem</h2>
+            <form action="" method="POST">
+                <input type="text" name="title" placeholder="Problem Title" required>
+                <textarea name="description" placeholder="Describe the problem..." required></textarea>
+                <select name="category" required>
+                    <option value="">Select Category</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Environment">Environment</option>
+                    <!-- Add more categories as needed -->
+                </select>
+                <button type="submit" class="cta-button">Submit Problem</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 ThinkBridge. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

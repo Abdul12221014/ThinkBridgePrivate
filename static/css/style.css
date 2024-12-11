@@ -1,0 +1,276 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header Styles */
+header {
+    background-color: #0044cc;
+    padding: 20px 0;
+    color: white;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header .logo {
+    width: 150px;
+}
+
+header nav a {
+    margin: 0 15px;
+    color: white;
+    font-size: 18px;
+}
+
+header nav a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Main Section Styles */
+main {
+    margin: 40px 0;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.intro h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.intro p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.featured-problems {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.problem-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.problem-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.problem-card p {
+    font-size: 1rem;
+    color: #777;
+}
+
+.cta-button {
+    background-color: #0044cc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 15px;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.cta-button:hover {
+    background-color: #0033aa;
+}
+
+/* Submit Form Styles */
+.submit-form {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 30px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.submit-form h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.submit-form input,
+.submit-form textarea,
+.submit-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.submit-form button {
+    background-color: #0044cc;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.submit-form button:hover {
+    background-color: #0033aa;
+}
+
+/* Browse Problems Styles */
+.browse-problems {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.browse-problems .problem-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.browse-problems h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Problem Details Styles */
+.problem-details {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.problem-details h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.problem-details p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.problem-details textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.problem-details button {
+    background-color: #0044cc;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.problem-details button:hover {
+    background-color: #0033aa;
+}
+
+/* About Us Styles */
+.about-us {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-us h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.about-us p {
+    font-size: 1.2rem;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #0044cc;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Banner Styles */
+body {
+    background-image: url("../static/images/banner.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav a {
+        margin: 10px 0;
+    }
+
+    .problem-card {
+        width: 100%;
+    }
+
+    .submit-form {
+        padding: 20px;
+    }
+
+    .problem-details {
+        padding: 20px;
+    }
+}
