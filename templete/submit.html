@@ -4,7 +4,237 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submit a Problem - ThinkBridge</title>
-    <link rel="stylesheet" href="../static/css/style.css">
+
+    <!-- Adding Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f4f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #8e44ad, #3498db);
+            padding: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #fff;
+        }
+
+        header .logo {
+            height: 40px;
+            margin-right: 30px;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        header nav a {
+            margin: 0 15px;
+            font-weight: 600;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #ffbb33;
+        }
+
+        header nav a.active {
+            color: #ffbb33;
+        }
+
+        main {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #ff9f43, #ff6a00);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .submit-form {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+
+        .submit-form:hover {
+            transform: translateY(0);
+        }
+
+        .submit-form h2 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .submit-form p {
+            font-size: 18px;
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+            background-color: #f7f7f7;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
+            background-color: #fff;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .cta-button {
+            background-color: #050545;
+            color: #fff;
+            padding: 16px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .cta-button:hover {
+            background-color: #9d00e6;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer .footer-content p {
+            font-size: 14px;
+        }
+
+        /* Animations */
+        .submit-form, .cta-button {
+            opacity: 0;
+            animation: fadeInUp 1s forwards;
+        }
+
+        .submit-form {
+            animation-delay: 0.2s;
+        }
+
+        .cta-button {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .submit-form {
+                padding: 30px;
+                width: 100%;
+            }
+
+            .cta-button {
+                width: 100%;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                width: 100%;
+                padding: 12px;
+            }
+
+            .submit-form h2 {
+                font-size: 28px;
+            }
+
+            .submit-form p {
+                font-size: 16px;
+            }
+        }
+
+        /* For smaller mobile screens */
+        @media (max-width: 480px) {
+            header {
+                padding: 15px 0;
+            }
+
+            .submit-form {
+                padding: 20px;
+            }
+
+            .cta-button {
+                padding: 14px 28px;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -25,24 +255,59 @@
     <main>
         <section class="submit-form">
             <h2>Submit a New Problem</h2>
-            <form action="" method="POST">
-                <input type="text" name="title" placeholder="Problem Title" required>
-                <textarea name="description" placeholder="Describe the problem..." required></textarea>
-                <select name="category" required>
-                    <option value="">Select Category</option>
-                    <option value="Technology">Technology</option>
-                    <option value="Healthcare">Healthcare</option>
-                    <option value="Environment">Environment</option>
-                    <!-- Add more categories as needed -->
-                </select>
-                <button type="submit" class="cta-button">Submit Problem</button>
+            <p>Help make the world a better place by sharing a problem you think needs solving.</p>
+            
+            <form action="/submit_problem" method="POST" enctype="multipart/form-data">
+                <!-- Problem Title -->
+                <div class="form-group">
+                    <label for="title">Problem Title</label>
+                    <input type="text" name="title" id="title" placeholder="Enter a title for the problem" required>
+                </div>
+
+                <!-- Problem Description -->
+                <div class="form-group">
+                    <label for="description">Problem Description</label>
+                    <textarea name="description" id="description" placeholder="Describe the problem in detail..." required></textarea>
+                </div>
+
+                <!-- Problem Category -->
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select name="category" id="category" required>
+                        <option value="">Select Category</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Environment">Environment</option>
+                        <option value="Social Issues">Social Issues</option>
+                        <option value="Education">Education</option>
+                    </select>
+                </div>
+
+                <!-- Tags (Optional) -->
+                <div class="form-group">
+                    <label for="tags">Tags (optional)</label>
+                    <input type="text" name="tags" id="tags" placeholder="Add tags like Education, Health...">
+                </div>
+
+                <!-- Image Upload (Optional) -->
+                <div class="form-group">
+                    <label for="image-upload">Attach an image (optional)</label>
+                    <input type="file" name="image" id="image-upload" accept="image/*">
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-group">
+                    <button type="submit" class="cta-button">Submit Problem</button>
+                </div>
             </form>
         </section>
     </main>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 ThinkBridge. All rights reserved.</p>
+        <div class="footer-content">
+            <p>&copy; 2024 ThinkBridge. All rights reserved.</p>
+        </div>
     </footer>
 
 </body>

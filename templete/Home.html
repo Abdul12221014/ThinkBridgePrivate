@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - ThinkBridge</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #6A00F4, #1DE9B6);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background-color: #6A00F4;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .cta-button {
+            background: #1DE9B6;
+            padding: 10px 15px;
+            border-radius: 20px;
+            color: #6A00F4;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background: #17c7a4;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 70px 20px;
+            color: white;
+        }
+
+        .hero-section h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .hero-section button {
+            padding: 12px 25px;
+            background: #1DE9B6;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            color: #6A00F4;
+            cursor: pointer;
+            margin: 10px 15px;
+        }
+
+        .hero-section button:hover {
+            background: #17c7a4;
+        }
+
+        /* Main Content */
+        main {
+            display: flex;
+            flex: 1;
+            gap: 30px;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .left-sidebar,
+        .right-sidebar,
+        .feed-section {
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            background: white;
+            overflow-y: auto;
+        }
+
+        .left-sidebar,
+        .right-sidebar {
+            width: 25%;
+            padding: 20px;
+        }
+
+        .feed-section {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Profile Summary */
+        .profile-summary {
+            text-align: center;
+        }
+
+        .profile-summary img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .profile-summary h3 {
+            margin: 10px 0 5px;
+        }
+
+        /* Feed Section */
+        .feed-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .feed-header h2 {
+            margin: 0;
+        }
+
+        .post-card {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            background: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+
+        .post-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .post-card h3 {
+            margin: 0;
+            font-size: 1.3em;
+        }
+
+        .post-card p {
+            margin: 10px 0;
+        }
+
+        .post-card a {
+            color: #6A00F4;
+            text-decoration: none;
+        }
+
+        .post-card a:hover {
+            text-decoration: underline;
+        }
+
+        .post-card .upvote-btn {
+            background-color: #1DE9B6;
+            border: none;
+            color: white;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .post-card .upvote-btn:hover {
+            background-color: #17c7a4;
+        }
+
+        /* Community Section */
+        .community-section {
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .community-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .community-header h2 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .create-community-btn {
+            background-color: #1DE9B6;
+            padding: 10px 20px;
+            border-radius: 25px;
+            color: white;
+            font-size: 1.1em;
+            text-decoration: none;
+        }
+
+        .create-community-btn:hover {
+            background-color: #17c7a4;
+        }
+
+        .community-card {
+            padding: 20px;
+            background-color: #f3f3f3;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .community-card h3 {
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .category-badge {
+            background-color: #6A00F4;
+            color: white;
+            font-size: 0.9em;
+            padding: 5px 10px;
+            border-radius: 15px;
+            margin-left: 10px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background-color: #6A00F4;
+            color: white;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .filter-btn {
+            background-color: #1DE9B6;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        .filter-btn:hover {
+            background-color: #17c7a4;
+        }
+
+        /* Chat Button Styles */
+        .chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #1DE9B6;
+            border: none;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 1.5em;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .chat-button:hover {
+            background-color: #17c7a4;
+        }
+
+        /* Chat Box Styles */
+        .chat-box {
+            display: none;
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            z-index: 999;
+        }
+
+        .chat-header {
+            background-color: #6A00F4;
+            color: white;
+            padding: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            text-align: center;
+        }
+
+        .chat-body {
+            padding: 20px;
+            height: 300px;
+            overflow-y: auto;
+        }
+
+        .chat-footer {
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #ddd;
+        }
+
+        .chat-footer input {
+            width: 80%;
+            padding: 8px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .chat-footer button {
+            background-color: #1DE9B6;
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .chat-footer button:hover {
+            background-color: #17c7a4;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <img src="../static/images/logo.png" alt="ThinkBridge Logo" class="logo">
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="submit.html">Submit Problem</a>
+            <a href="browse.html">Browse Problems</a>
+            <a href="about.html">About Us</a>
+            <a href="profile.html">Profile page</a>
+            <a href="leaderboard.html">LeaderBoard Page</a>
+        </nav>
+        <a href="#" class="cta-button">Sign Up</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Welcome to ThinkBridge</h1>
+        <p>Empowering Innovation for a Better Tomorrow</p>
+        <button>Start Browsing Problems</button>
+        <button>Submit a Problem</button>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Left Sidebar -->
+        <aside class="left-sidebar">
+            <div class="profile-summary">
+                <img src="https://www.example.com/your-profile-image.jpg" alt="Profile Image">
+                <h3>John Doe</h3>
+                <p>Founder of ThinkBridge</p>
+            </div>
+        </aside>
+
+        <!-- Feed Section -->
+        <section class="feed-section">
+            <div class="feed-header">
+                <h2>Recent Problems</h2>
+                <input type="text" class="search-bar" placeholder="Search for problems...">
+            </div>
+
+            <div class="post-card">
+                <h3>Problem 1</h3>
+                <p>Description of the first problem.</p>
+                <a href="#">View more</a>
+                <button class="upvote-btn">Upvote</button>
+            </div>
+
+            <div class="post-card">
+                <h3>Problem 2</h3>
+                <p>Description of the second problem.</p>
+                <a href="#">View more</a>
+                <button class="upvote-btn">Upvote</button>
+            </div>
+        </section>
+
+        <!-- Right Sidebar -->
+        <aside class="right-sidebar">
+            <div class="community-section">
+                <div class="community-header">
+                    <h2>Join a Community</h2>
+                    <a href="#" class="create-community-btn">Create Community</a>
+                </div>
+
+                <div class="community-card">
+                    <h3>Community 1 <span class="category-badge">Tech</span></h3>
+                    <p>Description of the first community.</p>
+                </div>
+
+                <div class="community-card">
+                    <h3>Community 2 <span class="category-badge">Health</span></h3>
+                    <p>Description of the second community.</p>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 ThinkBridge. All rights reserved.</p>
+    </footer>
+
+    <!-- Chat Button -->
+    <button class="chat-button" onclick="toggleChat()">💬</button>
+
+    <!-- Chat Box -->
+    <div class="chat-box" id="chat-box">
+        <div class="chat-header">
+            <h4>Chat with Us</h4>
+            <button onclick="toggleChat()">X</button>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <!-- Messages will be appended here -->
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chat-input" placeholder="Type a message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleChat() {
+            const chatBox = document.getElementById('chat-box');
+            chatBox.style.display = (chatBox.style.display === 'none' || chatBox.style.display === '') ? 'block' : 'none';
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+
+            if (message) {
+                const chatBody = document.getElementById('chat-body');
+                const newMessage = document.createElement('p');
+                newMessage.textContent = message;
+                chatBody.appendChild(newMessage);
+                input.value = '';
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }
+        }
+    </script>
+</body>
+
+</html>
